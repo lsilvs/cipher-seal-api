@@ -29,6 +29,10 @@ app.post('/api/user', async (req, res) => {
     Buffer.from(signature),
   );
 
+  if (!verified) {
+    return res.status(401).send('Unauthorized: Signature provided does not match')
+  }
+
   const { user } = payload;
   users.push(user);
   res.json({ verified, user });
