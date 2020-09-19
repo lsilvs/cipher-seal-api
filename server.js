@@ -1,4 +1,6 @@
 const express = require('express');
+const { createHash } = require('crypto');
+const ecc = require('tiny-secp256k1');
 const app = express();
 const bodyParser = require("body-parser");
 const path = require('path');
@@ -15,10 +17,21 @@ app.get('/api/users', (req, res) => {
 });
 
 app.post('/api/user', async (req, res) => {
-  console.log('POST api/user called!')
-  const { user } = req.body;
+  const { publicKey, signature, payload } = req.body;
+
+  const encoder = new TextEncoder();
+  const encodedPayload = encoder.encode(JSON.stringify(payload));
+  const payloadHash = createHash('sha256').update(encodedPayload, 'utf8').digest('base64');
+
+  const verified = ecc.verify(
+    Buffer.from(payloadHash, 'base64'),
+    Buffer.from(publicKey),
+    Buffer.from(signature),
+  );
+
+  const { user } = payload;
   users.push(user);
-  res.json({ user });
+  res.json({ verified, user });
 });
 
 app.get('/', (req, res) => {
