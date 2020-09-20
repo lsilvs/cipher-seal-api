@@ -8,16 +8,13 @@ const path = require('path');
 const port = 3080;
 const users = [];
 
-app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, '../cipher-seal-app/build')));
-
-app.get('/api/users', (req, res) => {
-  console.log('GET api/users called!')
-  res.json(users);
-});
-
-app.post('/api/user', async (req, res) => {
+const validateRequestSignature = (req, res, next) => {
   const { publicKey, signature, payload } = req.body;
+
+  if (!publicKey || !signature || !payload) {
+    res.status(422).send('Unprocessable Entity: Public Key, Signature and Payload are required to process the request.')
+    return
+  }
 
   const encoder = new TextEncoder();
   const encodedPayload = encoder.encode(JSON.stringify(payload));
@@ -30,12 +27,27 @@ app.post('/api/user', async (req, res) => {
   );
 
   if (!verified) {
-    return res.status(401).send('Unauthorized: Signature provided does not match')
+    res.status(401).send('Unauthorized: Signature provided does not match.')
+    return
   }
 
-  const { user } = payload;
+  next()
+  return
+}
+
+app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, '../cipher-seal-app/build')));
+app.use(validateRequestSignature);
+
+app.get('/api/users', (req, res) => {
+  console.log('GET api/users called!')
+  res.json(users);
+});
+
+app.post('/api/user', async (req, res) => {
+  const { user } = req.body.payload;
   users.push(user);
-  res.json({ verified, user });
+  res.json({ user });
 });
 
 app.get('/', (req, res) => {
