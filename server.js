@@ -39,15 +39,20 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '../cipher-seal-app/build')));
 app.use(validateRequestSignature);
 
-app.get('/api/users', (req, res) => {
-  console.log('GET api/users called!')
-  res.json(users);
-});
-
-app.post('/api/user', async (req, res) => {
-  const { user } = req.body.payload;
-  users.push(user);
-  res.json({ user });
+app.post('/api', (req, res) => {
+  const { action } = req.body.payload;
+  switch (action) {
+    case 'registration':
+      const { user } = req.body.payload;
+      users.push(user);
+      res.json({ user });
+      break;
+    case 'getAllUsers':
+      res.json(users);
+      break;
+    default:
+      break;
+  }
 });
 
 app.get('/', (req, res) => {
