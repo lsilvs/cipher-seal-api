@@ -43,9 +43,9 @@ app.post('/api', (req, res) => {
   const { action } = req.body.payload;
   switch (action) {
     case 'registration':
-      const { user } = req.body.payload;
-      users.push(user);
-      res.json({ user });
+      const { publicKey, signature, payload } = req.body;
+      users.push({ publicKey, signature, payload });
+      res.json({ user: payload.user });
       break;
     case 'getAllUsers':
       res.json(users);
