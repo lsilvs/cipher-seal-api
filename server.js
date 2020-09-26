@@ -22,8 +22,8 @@ const validateRequestSignature = (req, res, next) => {
 
   const verified = ecc.verify(
     Buffer.from(payloadHash, 'base64'),
-    Buffer.from(publicKey),
-    Buffer.from(signature),
+    Buffer.from(publicKey, 'base64'),
+    Buffer.from(signature, 'base64'),
   );
 
   if (!verified) {
@@ -35,17 +35,40 @@ const validateRequestSignature = (req, res, next) => {
   return
 }
 
+const createUser = (req, res) => {
+  const { publicKey, signature, payload } = req.body;
+  const user = users.find(user => user.publicKey === publicKey)
+  if (user) {
+    res.status(409).send('Conflict: User already registered.')
+    return
+  }
+  users.push({ publicKey, signature, payload });
+  res.json({ success: true });
+}
+
+const loginUser = (req, res) => {
+  const { publicKey } = req.body;
+  const user = users.find(user => user.publicKey === publicKey)
+  if (!user) {
+    res.status(404).send('Not Found: User not found.')
+    return
+  }
+  res.json({ success: true, user: user.payload.user });
+}
+
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '../cipher-seal-app/build')));
 app.use(validateRequestSignature);
 
 app.post('/api', (req, res) => {
   const { action } = req.body.payload;
+
   switch (action) {
-    case 'registration':
-      const { publicKey, signature, payload } = req.body;
-      users.push({ publicKey, signature, payload });
-      res.json({ user: payload.user });
+    case 'createUser':
+      createUser(req, res)
+      break;
+    case 'loginUser':
+      loginUser(req, res)
       break;
     case 'getAllUsers':
       res.json(users);
