@@ -47,7 +47,7 @@ const createUser = async (req, res) => {
     res.status(409).send('Conflict: User already registered.')
     return
   }
-  const newUser = await setUser({ publicKey, username: payload.username });
+  const newUser = await setUser({ publicKey, username: payload.user.username });
   res.json({ success: true, user: newUser });
 }
 
@@ -58,7 +58,7 @@ const loginUser = async (req, res) => {
     res.status(404).send('Not Found: User not found.')
     return
   }
-  res.json({ success: true, user });
+  res.json({ success: true, user: registeredUser });
 }
 
 const saveTweet = async (req, res) => {
