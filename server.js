@@ -4,9 +4,14 @@ const ecc = require('tiny-secp256k1');
 const app = express();
 const bodyParser = require("body-parser");
 const path = require('path');
+const {
+  getInitialTweets,
+  getUser,
+  setUser,
+  saveTweet: saveTweetAPI,
+} = require('./utils/api');
 
 const port = 3080;
-const users = [];
 
 const validateRequestSignature = (req, res, next) => {
   const { publicKey, signature, payload } = req.body;
@@ -35,32 +40,49 @@ const validateRequestSignature = (req, res, next) => {
   return
 }
 
-const createUser = (req, res) => {
-  const { publicKey, signature, payload } = req.body;
-  const user = users.find(user => user.publicKey === publicKey)
-  if (user) {
+const createUser = async (req, res) => {
+  const { publicKey, payload } = req.body;
+  const registeredUser = await getUser(publicKey);
+  if (registeredUser) {
     res.status(409).send('Conflict: User already registered.')
     return
   }
-  users.push({ publicKey, signature, payload });
-  res.json({ success: true });
+  const newUser = await setUser({ publicKey, username: payload.username });
+  res.json({ success: true, user: newUser });
 }
 
-const loginUser = (req, res) => {
+const loginUser = async (req, res) => {
   const { publicKey } = req.body;
-  const user = users.find(user => user.publicKey === publicKey)
-  if (!user) {
+  const registeredUser = await getUser(publicKey);
+  if (!registeredUser) {
     res.status(404).send('Not Found: User not found.')
     return
   }
-  res.json({ success: true, user: user.payload.user });
+  res.json({ success: true, user });
+}
+
+const saveTweet = async (req, res) => {
+  const { publicKey, payload } = req.body;
+  const registeredUser = await getUser(publicKey);
+  if (!registeredUser) {
+    res.status(404).send('Not Found: User not found.')
+    return
+  }
+
+  const tweet = {
+    text: payload.tweet.text,
+    author: publicKey,
+  }
+
+  await saveTweetAPI(tweet)
+  res.json({ success: true, tweet });
 }
 
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '../cipher-seal-app/build')));
 app.use(validateRequestSignature);
 
-app.post('/api', (req, res) => {
+app.post('/api', async (req, res) => {
   const { action } = req.body.payload;
 
   switch (action) {
@@ -70,8 +92,11 @@ app.post('/api', (req, res) => {
     case 'loginUser':
       loginUser(req, res)
       break;
-    case 'getAllUsers':
-      res.json(users);
+    case 'getAllTweets':
+      res.json(await getInitialTweets());
+      break;
+    case 'saveTweet':
+      saveTweet(req, res)
       break;
     default:
       break;
