@@ -62,7 +62,7 @@ const loginUser = async (req, res) => {
 }
 
 const saveTweet = async (req, res) => {
-  const { publicKey, payload } = req.body;
+  const { publicKey, signature, payload } = req.body;
   const registeredUser = await getUser(publicKey);
   if (!registeredUser) {
     res.status(404).send('Not Found: User not found.')
@@ -72,6 +72,7 @@ const saveTweet = async (req, res) => {
   const tweet = {
     text: payload.tweet.text,
     author: publicKey,
+    signature,
   }
 
   await saveTweetAPI(tweet)

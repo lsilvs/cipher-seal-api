@@ -18,10 +18,41 @@ let users = {
 };
 
 let tweets = {
+  'm4jmnx5mdr7iadw7ffq2oe': {
+    id: 'm4jmnx5mdr7iadw7ffq2oe',
+    text: 'If you study how economies work and how complicated they have to be just to support a really simple thing. For people who think that kind of thing is simple, there\'s an essay out there called "I, Pencil" that goes into detail about how complicated a pencil',
+    author: 'AlxvBWS5PfnDJc/BEPVvqj36+3xFQb/iVHldXw9+p5AD',
+    signature: 'Ewo7LbKj+UhS+PvtS0PFRjqSYR+xeIH0OMwnm+w1YLVHDo3e1PID5fCRg1lprSR9OCXVaYrxQuQdpd+KcE+jwA==',
+    timestamp: 1601825952115,
+    likes: [],
+    replies: [],
+    replyingTo: null,
+  },
+  '3545pvsfd2m4a212w43klg': {
+    id: '3545pvsfd2m4a212w43klg',
+    text: 'i infer your threat model for code signing with fast/short keyed hash F(key,data) the author ECDSA signs  s=Sig_Q(k,m) where k=random and m=F(k,binary), then at boot/runtime verifies m=F(k,binary). but then you have a merkle tree using F(k,<datum>) as hash due to using dm-verify',
+    author: 'AoWY7vnhhohOl+MmXvta7FgOQqSJdHP8MydRQqFIgpzc',
+    signature: 'ZB7VrawuwqML+hOMawZ1I+OdUPIJtU+anIgMr7FMHqsj4ptXC2pI/0T59a4lnUxdNeTvpaC6ReRBIYkDNeHwBg==',
+    timestamp: 1601825329723,
+    likes: [],
+    replies: [],
+    replyingTo: null,
+  },
+  '5tnz3tgfodkf4f8ocqkrrv': {
+    id: '5tnz3tgfodkf4f8ocqkrrv',
+    text: 'If you don\'t believe me or don\'t get it, I don\'t have time to try to convince you, sorry.',
+    author: 'A8PDxhXxpMg+FDWzmsJphFgEA1GRNRSRvQT1cCfnE/Rq',
+    signature: '1DR54WnQGqdcTgJdW7yu0tJZZ5Rmw6gjwyHJR09/O9t4gkdiTeBXQk/+HMHBeS4qHKQrITsS/kkJ5vPUj5vOcQ==',
+    timestamp: 1601824522384,
+    likes: [],
+    replies: [],
+    replyingTo: null,
+  },
   '8xf0y6ziyjabvozdd253nd': {
     id: '8xf0y6ziyjabvozdd253nd',
     text: "Shoutout to all the speakers I know for whom English is not a first language, but can STILL explain a concept well. It's hard enough to give a good talk in your mother tongue!",
     author: 'AoWY7vnhhohOl+MmXvta7FgOQqSJdHP8MydRQqFIgpzc',
+    signature: 'invalidSignature/eVEHqzYLqHvZb9tbK5cTUg+hbM93c3ImBw1M93miSUMJV59NFTgtUulHYYuuH87zpYXdg==',
     timestamp: 1518122597860,
     likes: ['A8PDxhXxpMg+FDWzmsJphFgEA1GRNRSRvQT1cCfnE/Rq'],
     replies: ['fap8sdxppna8oabnxljzcv', '3km0v4hf1ps92ajf4z2ytg'],
@@ -31,6 +62,7 @@ let tweets = {
     id: '5c9qojr2d1738zlx09afby',
     text: 'I hope one day the propTypes pendulum swings back. Such a simple yet effective API. Was one of my favorite parts of React.',
     author: 'A8PDxhXxpMg+FDWzmsJphFgEA1GRNRSRvQT1cCfnE/Rq',
+    signature: 'invalidSignature/eVEHqzYLqHvZb9tbK5cTUg+hbM93c3ImBw1M93miSUMJV59NFTgtUulHYYuuH87zpYXdg==',
     timestamp: 1518043995650,
     likes: ['AoWY7vnhhohOl+MmXvta7FgOQqSJdHP8MydRQqFIgpzc', 'AlxvBWS5PfnDJc/BEPVvqj36+3xFQb/iVHldXw9+p5AD'],
     replies: ['njv20mq7jsxa6bgsqc97'],
@@ -40,6 +72,7 @@ let tweets = {
     id: 'f4xzgapq7mu783k9t02ghx',
     text: 'Want to work at Facebook/Google/:BigCompany? Start contributing code long before you ever interview there.',
     author: 'A8PDxhXxpMg+FDWzmsJphFgEA1GRNRSRvQT1cCfnE/Rq',
+    signature: 'invalidSignature/eVEHqzYLqHvZb9tbK5cTUg+hbM93c3ImBw1M93miSUMJV59NFTgtUulHYYuuH87zpYXdg==',
     timestamp: 1517043995650,
     likes: ['AlxvBWS5PfnDJc/BEPVvqj36+3xFQb/iVHldXw9+p5AD'],
     replies: [],
@@ -49,6 +82,7 @@ let tweets = {
     id: 'hbsc73kzqi75rg7v1e0i6a',
     text: 'Puppies 101: buy a hamper with a lid on it.',
     author: 'AoWY7vnhhohOl+MmXvta7FgOQqSJdHP8MydRQqFIgpzc',
+    signature: 'invalidSignature/eVEHqzYLqHvZb9tbK5cTUg+hbM93c3ImBw1M93miSUMJV59NFTgtUulHYYuuH87zpYXdg==',
     timestamp: 1516043995650,
     likes: ['A8PDxhXxpMg+FDWzmsJphFgEA1GRNRSRvQT1cCfnE/Rq'],
     replies: ['leqp4lzfox7cqvsgdj0e7', 'sfljgka8pfddbcer8nuxv'],
@@ -58,6 +92,7 @@ let tweets = {
     id: '5w6k1n34dkp1x29cuzn2zn',
     text: 'Is there a metric like code coverage, but that shows lines that, if changed (in a syntactically correct way), wouldn’t cause tests to fail?',
     author: 'AlxvBWS5PfnDJc/BEPVvqj36+3xFQb/iVHldXw9+p5AD',
+    signature: 'invalidSignature/eVEHqzYLqHvZb9tbK5cTUg+hbM93c3ImBw1M93miSUMJV59NFTgtUulHYYuuH87zpYXdg==',
     timestamp: 1515043995650,
     likes: ['AoWY7vnhhohOl+MmXvta7FgOQqSJdHP8MydRQqFIgpzc'],
     replies: [],
@@ -67,6 +102,7 @@ let tweets = {
     id: 'czpa59mg577x1oo45cup0d',
     text: "React came out 'rethinking best practices'. It has since accumulated 'best practices' of its own. Let’s see if we can do better.",
     author: 'AlxvBWS5PfnDJc/BEPVvqj36+3xFQb/iVHldXw9+p5AD',
+    signature: 'invalidSignature/eVEHqzYLqHvZb9tbK5cTUg+hbM93c3ImBw1M93miSUMJV59NFTgtUulHYYuuH87zpYXdg==',
     timestamp: 1515043995650,
     likes: ['A8PDxhXxpMg+FDWzmsJphFgEA1GRNRSRvQT1cCfnE/Rq', 'AoWY7vnhhohOl+MmXvta7FgOQqSJdHP8MydRQqFIgpzc'],
     replies: ['3sklxkf9yyfowrf0o1ftbb'],
@@ -76,6 +112,7 @@ let tweets = {
     id: '2mb6re13q842wu8n106bhk',
     text: 'I think I realized I like dogs so much because I can really relate to being motivated by snacks',
     author: 'AoWY7vnhhohOl+MmXvta7FgOQqSJdHP8MydRQqFIgpzc',
+    signature: 'invalidSignature/eVEHqzYLqHvZb9tbK5cTUg+hbM93c3ImBw1M93miSUMJV59NFTgtUulHYYuuH87zpYXdg==',
     timestamp: 1514043995650,
     likes: ['AlxvBWS5PfnDJc/BEPVvqj36+3xFQb/iVHldXw9+p5AD'],
     replies: ['26p5pskqi88i58qmza2gid'],
@@ -85,6 +122,7 @@ let tweets = {
     id: 'nnvkjqoevs8t02lzcc0ky',
     text: 'Maybe the real benefit of open source was the friendships we made along the way?',
     author: 'A8PDxhXxpMg+FDWzmsJphFgEA1GRNRSRvQT1cCfnE/Rq',
+    signature: 'invalidSignature/eVEHqzYLqHvZb9tbK5cTUg+hbM93c3ImBw1M93miSUMJV59NFTgtUulHYYuuH87zpYXdg==',
     timestamp: 1513043995650,
     likes: [],
     replies: [],
@@ -94,6 +132,7 @@ let tweets = {
     id: 'omdbjl68fxact38hk7ypy6',
     text: 'A 7-minute Paul Joseph Watson video being translated and aired by a Russian state TV channel is the most surreal thing I’ve seen in 2018 yet',
     author: 'AlxvBWS5PfnDJc/BEPVvqj36+3xFQb/iVHldXw9+p5AD',
+    signature: 'invalidSignature/eVEHqzYLqHvZb9tbK5cTUg+hbM93c3ImBw1M93miSUMJV59NFTgtUulHYYuuH87zpYXdg==',
     timestamp: 1512043995650,
     likes: [],
     replies: [],
@@ -103,6 +142,7 @@ let tweets = {
     id: '4pt0px8l0l9g6y69ylivti',
     text: 'Talking less about the downsides of OSS and focusing on some of the huge potential upsides for once might just help get more people into it.',
     author: 'A8PDxhXxpMg+FDWzmsJphFgEA1GRNRSRvQT1cCfnE/Rq',
+    signature: 'invalidSignature/eVEHqzYLqHvZb9tbK5cTUg+hbM93c3ImBw1M93miSUMJV59NFTgtUulHYYuuH87zpYXdg==',
     timestamp: 1511043995650,
     likes: ['AlxvBWS5PfnDJc/BEPVvqj36+3xFQb/iVHldXw9+p5AD'],
     replies: [],
@@ -112,6 +152,7 @@ let tweets = {
     id: '6h5ims9iks66d4m7kqizmv',
     text: "By the way, if you have a blog post sitting around and want to get some eyes on it, we take guest submissions! That's how I started.",
     author: 'AoWY7vnhhohOl+MmXvta7FgOQqSJdHP8MydRQqFIgpzc',
+    signature: 'invalidSignature/eVEHqzYLqHvZb9tbK5cTUg+hbM93c3ImBw1M93miSUMJV59NFTgtUulHYYuuH87zpYXdg==',
     timestamp: 1510043995650,
     likes: ['AlxvBWS5PfnDJc/BEPVvqj36+3xFQb/iVHldXw9+p5AD', 'A8PDxhXxpMg+FDWzmsJphFgEA1GRNRSRvQT1cCfnE/Rq'],
     replies: ['xi3ca2jcfvpa0i3t4m7ag', 'r0xu2v1qrxa6ygtvf2rkjw'],
@@ -120,6 +161,7 @@ let tweets = {
   fap8sdxppna8oabnxljzcv: {
     id: 'fap8sdxppna8oabnxljzcv',
     author: 'A8PDxhXxpMg+FDWzmsJphFgEA1GRNRSRvQT1cCfnE/Rq',
+    signature: 'invalidSignature/eVEHqzYLqHvZb9tbK5cTUg+hbM93c3ImBw1M93miSUMJV59NFTgtUulHYYuuH87zpYXdg==',
     text: "I agree. I'm always really impressed when I see someone giving a talk in a language that's not their own.",
     timestamp: 1518122677860,
     likes: ['AoWY7vnhhohOl+MmXvta7FgOQqSJdHP8MydRQqFIgpzc'],
@@ -129,6 +171,7 @@ let tweets = {
   '3km0v4hf1ps92ajf4z2ytg': {
     id: '3km0v4hf1ps92ajf4z2ytg',
     author: 'AlxvBWS5PfnDJc/BEPVvqj36+3xFQb/iVHldXw9+p5AD',
+    signature: 'invalidSignature/eVEHqzYLqHvZb9tbK5cTUg+hbM93c3ImBw1M93miSUMJV59NFTgtUulHYYuuH87zpYXdg==',
     text: 'It can be difficult at times.',
     timestamp: 1518122667860,
     likes: [],
@@ -138,6 +181,7 @@ let tweets = {
   njv20mq7jsxa6bgsqc97: {
     id: 'njv20mq7jsxa6bgsqc97',
     author: 'AlxvBWS5PfnDJc/BEPVvqj36+3xFQb/iVHldXw9+p5AD',
+    signature: 'invalidSignature/eVEHqzYLqHvZb9tbK5cTUg+hbM93c3ImBw1M93miSUMJV59NFTgtUulHYYuuH87zpYXdg==',
     text: 'Sometimes you have to sacrifice simplicity for power.',
     timestamp: 1518044095650,
     likes: ['A8PDxhXxpMg+FDWzmsJphFgEA1GRNRSRvQT1cCfnE/Rq'],
@@ -147,6 +191,7 @@ let tweets = {
   leqp4lzfox7cqvsgdj0e7: {
     id: 'leqp4lzfox7cqvsgdj0e7',
     author: 'A8PDxhXxpMg+FDWzmsJphFgEA1GRNRSRvQT1cCfnE/Rq',
+    signature: 'invalidSignature/eVEHqzYLqHvZb9tbK5cTUg+hbM93c3ImBw1M93miSUMJV59NFTgtUulHYYuuH87zpYXdg==',
     text: 'Also trashcans. Learned this the hard way.',
     timestamp: 1516043255650,
     likes: [],
@@ -156,6 +201,7 @@ let tweets = {
   sfljgka8pfddbcer8nuxv: {
     id: 'sfljgka8pfddbcer8nuxv',
     author: 'AlxvBWS5PfnDJc/BEPVvqj36+3xFQb/iVHldXw9+p5AD',
+    signature: 'invalidSignature/eVEHqzYLqHvZb9tbK5cTUg+hbM93c3ImBw1M93miSUMJV59NFTgtUulHYYuuH87zpYXdg==',
     text: 'Puppies are the best.',
     timestamp: 1516045995650,
     likes: ['AoWY7vnhhohOl+MmXvta7FgOQqSJdHP8MydRQqFIgpzc', 'A8PDxhXxpMg+FDWzmsJphFgEA1GRNRSRvQT1cCfnE/Rq'],
@@ -165,6 +211,7 @@ let tweets = {
   '3sklxkf9yyfowrf0o1ftbb': {
     id: '3sklxkf9yyfowrf0o1ftbb',
     author: 'AoWY7vnhhohOl+MmXvta7FgOQqSJdHP8MydRQqFIgpzc',
+    signature: 'invalidSignature/eVEHqzYLqHvZb9tbK5cTUg+hbM93c3ImBw1M93miSUMJV59NFTgtUulHYYuuH87zpYXdg==',
     text: 'The idea of best practices being a negative thing is an interesting concept.',
     timestamp: 1515044095650,
     likes: ['AlxvBWS5PfnDJc/BEPVvqj36+3xFQb/iVHldXw9+p5AD'],
@@ -174,6 +221,7 @@ let tweets = {
   '26p5pskqi88i58qmza2gid': {
     id: '26p5pskqi88i58qmza2gid',
     author: 'A8PDxhXxpMg+FDWzmsJphFgEA1GRNRSRvQT1cCfnE/Rq',
+    signature: 'invalidSignature/eVEHqzYLqHvZb9tbK5cTUg+hbM93c3ImBw1M93miSUMJV59NFTgtUulHYYuuH87zpYXdg==',
     text: 'Too relatable',
     timestamp: 1514044994650,
     likes: ['AoWY7vnhhohOl+MmXvta7FgOQqSJdHP8MydRQqFIgpzc'],
@@ -183,6 +231,7 @@ let tweets = {
   xi3ca2jcfvpa0i3t4m7ag: {
     id: 'xi3ca2jcfvpa0i3t4m7ag',
     author: 'A8PDxhXxpMg+FDWzmsJphFgEA1GRNRSRvQT1cCfnE/Rq',
+    signature: 'invalidSignature/eVEHqzYLqHvZb9tbK5cTUg+hbM93c3ImBw1M93miSUMJV59NFTgtUulHYYuuH87zpYXdg==',
     text: 'Just DMd you!',
     timestamp: 1510043995650,
     likes: [],
@@ -192,6 +241,7 @@ let tweets = {
   r0xu2v1qrxa6ygtvf2rkjw: {
     id: 'r0xu2v1qrxa6ygtvf2rkjw',
     author: 'AlxvBWS5PfnDJc/BEPVvqj36+3xFQb/iVHldXw9+p5AD',
+    signature: 'invalidSignature/eVEHqzYLqHvZb9tbK5cTUg+hbM93c3ImBw1M93miSUMJV59NFTgtUulHYYuuH87zpYXdg==',
     text: 'This is a great idea.',
     timestamp: 1510044395650,
     likes: ['A8PDxhXxpMg+FDWzmsJphFgEA1GRNRSRvQT1cCfnE/Rq'],
@@ -251,23 +301,25 @@ function generateUID() {
   return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 }
 
-function formatTweet({ author, text, replyingTo = null }) {
+function formatTweet({ author, text, signature, replyingTo = null }) {
   return {
     author,
     id: generateUID(),
     likes: [],
     replies: [],
     text,
+    signature,
     timestamp: Date.now(),
     replyingTo,
   };
 }
 
-function _saveTweet({ text, author, replyingTo }) {
+function _saveTweet({ text, author, signature, replyingTo }) {
   return new Promise((res) => {
     const formattedTweet = formatTweet({
       text,
       author,
+      signature,
       replyingTo,
     });
 
